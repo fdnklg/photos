@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     position: relative;
     font-family: ${p => p.theme.fonts.body};
-    font-size: ${p => p.theme.fontSizes.body}px;
+    font-size: ${p => p.theme.fontSizes[1]};
   }
 `;
 

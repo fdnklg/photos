@@ -1,5 +1,5 @@
-import DataModel from './DataModel';
+import Content from '../../../public/data/data';
 
 export default {
-  data: DataModel,
+  ...Content
 };
