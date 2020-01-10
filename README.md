@@ -41,3 +41,4 @@ npm run build
 ## Contribute
 
 Feel free to dive in! [Open an issue](https://github.com/wbkd/react-starter/issues/new) or submit a [pull request](https://github.com/wbkd/react-starter/pulls/).
+# photos
