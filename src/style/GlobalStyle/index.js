@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
+    background: ${p => p.theme.colors.grey}
     position: relative;
     font-family: ${p => p.theme.fonts.body};
     font-size: ${p => p.theme.fontSizes[1]};

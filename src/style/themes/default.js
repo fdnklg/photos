@@ -10,6 +10,7 @@ const s = d => {
 const defaultTheme = {
   colors: {
     text: '#000',
+    grey: '#E7E7E7',
     background: '#fff',
     primary: '#07c',
     secondary: '#30c',
@@ -22,7 +23,7 @@ const defaultTheme = {
     headline: 'Faktum SemiBold, sans-serif',
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96].map(px),
-  letterSpacing: [.125,.25,.5,1].map(px),
+  letterSpacing: [.125,.25,.5,1,2,3].map(px),
   fontWeights: {
     body: 400,
     heading: 700,

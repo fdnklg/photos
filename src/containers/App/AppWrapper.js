@@ -15,37 +15,37 @@ const StyledWrapper = styled.div`
 
 // import Nav from '../../components/Nav';
 // import Profile from '../Profile';
-// import Project from '../Project';
 // import Legal from '../Legal';
 // import Cta from '../../components/Cta';
-// import Home from '../Home';
 // import Footer from '../../components/Footer';
-import Carousel from '../../components/Carousel/';
+import List from '../../components/List';
+import Project from '../Project';
 
 const AppWrapper = () => {
-  const series = useStoreState(state => state.series)[0]; // set correct index here later!
+  const series = useStoreState(state => state.series); // set correct index here later!
 
-const DynamicGlobalStyle = createGlobalStyle`
-  ::selection {
-    ${'' /* background-color: ${color[0]};
-    color: ${color[1]}; */}
-  }
-`
-
+  const DynamicGlobalStyle = createGlobalStyle`
+    ::selection {
+      ${'' /* background-color: ${color[0]};
+      color: ${color[1]}; */}
+    }
+  `
   return (
     <StyledWrapper>
       <DynamicGlobalStyle />
       <Box
         sx={{
           mx: 'auto',
-          px: [3, 4, 5, 6],
-          py: [3, 4, 5, 5],
+          height: ['100vh'],
+          width: ['100vw'],
+          display: 'grid',
+          alignItems: 'center'
         }}
       >
         {/* <Nav /> */}
         <Switch>
-          {/* <Route exact path="/:projectName" component={Carousel} /> */}
-          <Carousel content={series}></Carousel>
+          <Route exact path="/" component={() => <List data={series} />} />
+          <Route exact path="/projects/:projectName" component={() => <Project/>} />
         </Switch>
         {/* <Cta content={cta}/> */}
         {/* <Footer /> */}
