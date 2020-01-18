@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 import { Box } from 'reflexbox';
+import history from '../../../history';
 // import { compare } from '~/utils';
 
 import Link from '~/components/Link';
@@ -17,6 +18,14 @@ const StyledTable = styled.table`
 
 const StyledTR = styled.tr`
   border-top: ${p => p.border ? '1px solid' + p.c[0] : 'none'};
+  transition: ${p => p.theme.transition.s};
+  opacity: 1;
+  cursor: pointer;
+  
+  &:hover {
+    opacity: .5;
+    transition: ${p => p.theme.transition.s}
+  }
   
   td {
     padding-top: ${p => p.border ? '1em !important' : '0 !important'};
@@ -76,21 +85,30 @@ const StyledTitle = styled.td`
   }
 `;
 
-// const isNewYear = (data,i) => {
-//   const l = data.length;
-//   const previous = data[i===0?l-1:i-1];
-//   const current = data[i];
-//   const next = data[i===l-1?0:i+1];
-//   return previous.year !== current.year;
-// }
+const StyledLink = styled.a`
+  text-decoration: none;
+`;
+
+const isNewYear = (data,i) => {
+  const l = data.length;
+  const previous = data[i===0?l-1:i-1];
+  const current = data[i];
+  const next = data[i===l-1?0:i+1];
+  return previous.year !== current.year;
+}
 
 const List = (props) => {
   const { data } = props;
   console.log(props);
-  // const color = useStoreState(state => state.color.color);
+  const color = useStoreState(state => state.color);
   // const setColor = useStoreActions(actions => actions.color.setColor);
   // const sortedByYear = data.sort(compare);
   const newYear = true;
+
+  const handleClick = (path) => {
+    console.log(path)
+    history.push(`/projects/${path}`)
+  }
 
   return (
     <Box
@@ -108,12 +126,17 @@ const List = (props) => {
       <StyledTable>
         <tbody>
           { data.map((p,i) => {
-            {/* const newYear = isNewYear(data,i) */}
+            const newYear = isNewYear(data,i)
             return (
-                <StyledTR key={`tr-${i}`}>
-                    <StyledTD>{newYear ? p.year : ''}</StyledTD>
-                    <Link href={`projects/${p.path}`} title={p.title} alt={p.description}/>
-                    <StyledTDType type="last">{p.type}</StyledTDType>
+                <StyledTR
+                  key={`key-project-${i}`}
+                  onClick={() => { handleClick(p.path)} }
+                  c={color}
+                  border={newYear}
+                  key={`tr-${i}`}
+                >
+                  <StyledTD>{p.title}</StyledTD>
+                  <StyledTD type="last">{newYear ? p.year : ''}</StyledTD>
                 </StyledTR>
             )
           }) }

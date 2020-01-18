@@ -19,12 +19,12 @@ const StyledImage = styled(Image)`
 
 const StyledButtonBack = styled(ButtonBack)`
   width: 50%;
-  cursor: url("public/img/ui/btn-back.png"), pointer !important;
+  cursor: url(${p => p.theme.cursor.back}), pointer !important;
 `;
 
 const StyledButtonNext = styled(ButtonNext)`
   width: 50%;
-  cursor: url("public/img/ui/btn-next.png"), pointer !important;
+  cursor: url(${p => p.theme.cursor.next}), pointer !important;
 `;
 
 const ButtonWrapper = styled(Box)`
@@ -67,7 +67,7 @@ const Carousel = (props) => {
               const dir = `/public/img/${path}/${item.name}.jpg`;
 
               return (
-                <Slide index={i}>
+                <Slide index={i} key={`slide-key-${i}`}>
                   <StyledImage src={dir}/>
                 </Slide>
               )

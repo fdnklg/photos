@@ -73,7 +73,7 @@ const Project = () => {
           alignSelf: 'end',
           display: 'flex',
           justifyContent: 'space-between',
-          px: [1, 2, 2, 4],
+          px: [3, 3, 4, 4],
           py: [1, 2, 2, 3]
         }}
       >

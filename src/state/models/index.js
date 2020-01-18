@@ -1,5 +1,6 @@
 import { action } from 'easy-peasy';
 import Content from '../../../public/data/data';
+import { colorMode } from '../../utils/';
 
 
 export default {
@@ -16,4 +17,5 @@ export default {
   setCurrentProject: action((state, payload) => {
     state.currentProject = payload;
   }),
+  color: colorMode(['#000', '#E7E7E7']),
 };

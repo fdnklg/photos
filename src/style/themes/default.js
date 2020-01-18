@@ -1,4 +1,6 @@
 /* eslint-disable */
+import { colorMode, cursorMode } from '../../utils/'
+
 const px = d => {
   return `${d}px`;
 };
@@ -18,9 +20,14 @@ const defaultTheme = {
     gray: '#dddddf',
     highlight: 'hsla(205, 100%, 40%, 0.125)',
   },
+  color: colorMode(['#000', '#E7E7E7']),
   fonts: {
-    body: 'Faktum Regular, sans-serif',
-    headline: 'Faktum SemiBold, sans-serif',
+    body: 'Mier A Regular, sans-serif',
+    headline: 'Mier A Bold, sans-serif',
+  },
+  cursor: {
+    back: cursorMode(["public/img/ui/btn-back-white.png", "public/img/ui/btn-back.png"]),
+    next: cursorMode(["public/img/ui/btn-next-white.png", "public/img/ui/btn-next.png"]),
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96].map(px),
   letterSpacing: [.125,.25,.5,1,2,3].map(px),
@@ -44,6 +51,9 @@ const defaultTheme = {
   radii: {
     default: 4,
     circle: 99999,
+  },
+  transition: {
+    s: 'all .125s ease-in-out'
   }
 };
 

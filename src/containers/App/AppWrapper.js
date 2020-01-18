@@ -45,7 +45,7 @@ const AppWrapper = () => {
         {/* <Nav /> */}
         <Switch>
           <Route exact path="/" component={() => <List data={series} />} />
-          <Route exact path="/projects/:projectName" component={() => <Project/>} />
+          <Route exact path="/projects/:projectName" component={Project} />
         </Switch>
         {/* <Cta content={cta}/> */}
         {/* <Footer /> */}
